@@ -14,9 +14,12 @@ import javax.servlet.annotation.*;
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
+    public List<Person> personList = new ArrayList<>();
+
+
 
     public void init() {
-        List<Person> personList = new ArrayList<>();
+
 
         personList.add(new Person("Ida", "666"));
         personList.add(new Person("Lone", "1234"));

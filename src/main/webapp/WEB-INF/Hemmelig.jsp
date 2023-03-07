@@ -29,5 +29,19 @@
 
 </form>
 
+<form action= "ServletDeleteUser">
+
+    <input type = "submit" value="slet bruger">
+
+</form>
+
+<form action= "ServletChangePassword">
+
+    <label for="nyKode">ny kode:</label><br>
+    <input type="text" id="nyKode" name="nyKode" value="ny kode hér"><br>
+    <input type = "submit" value="Ændr kodeord">
+
+</form>
+
 </body>
 </html>
