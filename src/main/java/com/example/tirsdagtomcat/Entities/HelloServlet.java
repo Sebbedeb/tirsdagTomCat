@@ -18,10 +18,7 @@ public class HelloServlet extends HttpServlet {
 
 
 
-    public void init(HttpServletRequest request) {
-        String navn = request.getParameter("nyNavn");
-        String kode = request.getParameter("nyKode");
-        personList.add(new Person(navn, kode));
+    public void init() {
         personList.add(new Person("Ida", "666", "admin"));
         personList.add(new Person("Lone", "1234"));
         personList.add(new Person("Lonny", "313"));
@@ -30,7 +27,9 @@ public class HelloServlet extends HttpServlet {
 
         Map<String, Person> personMap = new HashMap<>();
 
-        for (Person person : personList) {personMap.put(person.getNavn(),person);}
+        for (Person person : personList) {
+            personMap.put(person.getNavn(),person);
+        }
 
 
         getServletContext().setAttribute("customers",personMap);
@@ -50,7 +49,7 @@ public class HelloServlet extends HttpServlet {
         if(request.getSession(false) == null || !request.isRequestedSessionIdValid())
         {
             System.out.println("vi kender allerede brugeren");
-            request.getRequestDispatcher("WEB-INF/hemmelig.jsp").forward(request,response);
+            request.getRequestDispatcher("WEB-INF/Hemmelig.jsp").forward(request,response);
         }
 
         if(!personMap.containsKey(navn))
@@ -73,6 +72,30 @@ public class HelloServlet extends HttpServlet {
         session.setAttribute("kode",kode);
         request.getRequestDispatcher("WEB-INF/Hemmelig.jsp").forward(request,response);
 
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        Map <String, Person> personMap = (Map<String, Person>) getServletContext().getAttribute("customers");
+        String nyNavn = request.getParameter("nyNavn");
+        String nyKode = request.getParameter("nyKode");
+        Person newPerson = new Person(nyNavn,nyKode);
+        if(personMap.containsKey(newPerson.getNavn()))
+        {
+            request.setAttribute("besked","Brugeren findes allerede");
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
+        else {
+            personMap.put(newPerson.getNavn(), newPerson);
+            HttpSession session = request.getSession();
+            request.setAttribute("navn",nyNavn);
+            request.setAttribute("id",session.getId());
+
+            session.setAttribute("navn",nyNavn);
+            session.setAttribute("kode",nyKode);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     public void destroy() {

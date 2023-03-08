@@ -32,7 +32,7 @@ ${requestScope.besked}
     <input type="submit" value="Log ind">
 </form>
 
-<form action="hello-servlet" method="get">
+<form action="hello-servlet" method="post">
     <label for="nyNavn">angiv navn:</label><br>
     <input type="text" id="nyNavn" name="nyNavn" value="John"><br>
     <label for="nyKode">skriv kode:</label><br>
