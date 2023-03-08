@@ -8,25 +8,29 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Bag muren via Servlet</a>
+<br/>
+<a href="hello-servlet">bag muren via min servlet</a>
 <br>
-<a href="WEB-INF/Hemmelig.jsp">bag muren</a>
 <br>
-<a href="FriSiden.jsp">fri</a>
+<a href="WEB-INF/hemmelig.jsp">bag muren</a>
+<br>
+<br>
+<a href="friside.jsp">fri</a>
+
 <br>
 <br>
 <br>
 
 ${requestScope.besked}
-
-<form action="hello-servlet">
-    <label for="navn">navn:</label><br>
+<br>
+<br>
+<form action="hello-servlet" method="get">
+    <label for="navn">angiv navn:</label><br>
     <input type="text" id="navn" name="navn" value="John"><br>
     <label for="kode">skriv kode:</label><br>
     <input type="text" id="kode" name="kode" value="Doe"><br><br>
     <input type="submit" value="Submit">
 </form>
-
 
 </body>
 </html>

@@ -1,6 +1,6 @@
-package com.example.tirsdagtomcat;
+package com.example.tirsdagtomcat.Entities;
 
-import Entities.Person;
+import com.example.tirsdagtomcat.Entities.Entitet.Person;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class HelloServlet extends HttpServlet {
     public void init() {
 
 
-        personList.add(new Person("Ida", "666"));
+        personList.add(new Person("Ida", "666", "admin"));
         personList.add(new Person("Lone", "1234"));
         personList.add(new Person("Lonny", "313"));
         personList.add(new Person("Feehaar", "4545"));
