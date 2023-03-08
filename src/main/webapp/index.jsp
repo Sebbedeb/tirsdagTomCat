@@ -27,9 +27,17 @@ ${requestScope.besked}
 <form action="hello-servlet" method="get">
     <label for="navn">angiv navn:</label><br>
     <input type="text" id="navn" name="navn" value="John"><br>
-    <label for="kode">skriv kode:</label><br>
-    <input type="text" id="kode" name="kode" value="Doe"><br><br>
-    <input type="submit" value="Submit">
+<label for="kode">skriv kode:</label><br>
+<input type="text" id="kode" name="kode" value="Doe"><br><br>
+    <input type="submit" value="Log ind">
+</form>
+
+<form action="hello-servlet" method="get">
+    <label for="nyNavn">angiv navn:</label><br>
+    <input type="text" id="nyNavn" name="nyNavn" value="John"><br>
+    <label for="nyKode">skriv kode:</label><br>
+    <input type="text" id="nyKode" name="nyKode" value="Doe"><br><br>
+    <input type="submit" value="Ny Bruger">
 </form>
 
 </body>

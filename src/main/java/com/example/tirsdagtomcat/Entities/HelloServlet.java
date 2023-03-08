@@ -18,9 +18,10 @@ public class HelloServlet extends HttpServlet {
 
 
 
-    public void init() {
-
-
+    public void init(HttpServletRequest request) {
+        String navn = request.getParameter("nyNavn");
+        String kode = request.getParameter("nyKode");
+        personList.add(new Person(navn, kode));
         personList.add(new Person("Ida", "666", "admin"));
         personList.add(new Person("Lone", "1234"));
         personList.add(new Person("Lonny", "313"));
@@ -38,6 +39,7 @@ public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         Map<String, Person> personMap = (Map<String, Person>) getServletContext().getAttribute("customers");
+
 
         String navn = request.getParameter("navn");
         String kode = request.getParameter("kode");
