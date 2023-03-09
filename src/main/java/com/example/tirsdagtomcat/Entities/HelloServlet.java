@@ -98,6 +98,8 @@ public class HelloServlet extends HttpServlet {
 
             session.setAttribute("navn",nyNavn);
             session.setAttribute("kode",nyKode);
+            personMap.put(newPerson.getNavn(), newPerson);
+            Brugere.brugerList.add(newPerson);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
