@@ -29,6 +29,7 @@ public class HelloServlet extends HttpServlet {
 
         for (Person person : personList) {
             personMap.put(person.getNavn(),person);
+            Brugere.brugerList.add(person);
         }
 
 
@@ -42,6 +43,8 @@ public class HelloServlet extends HttpServlet {
 
         String navn = request.getParameter("navn");
         String kode = request.getParameter("kode");
+        String nyNavn = request.getParameter("nyNavn");
+        String nyKode = request.getParameter("nyKode");
 
         System.out.println(navn+" "+kode);
 
@@ -67,6 +70,7 @@ public class HelloServlet extends HttpServlet {
         HttpSession session = request.getSession();
         request.setAttribute("navn",navn);
         request.setAttribute("id",session.getId());
+        System.out.println(session.getId());
 
         session.setAttribute("navn",navn);
         session.setAttribute("kode",kode);

@@ -14,7 +14,7 @@
 
 dit sessionid er ${requestScope.id}
 
-dit navn er ${sessionScope.bruger.navn} og din kode er ${sessionScope.brugerKode}
+dit navn er ${sessionScope.navn} og din kode er ${sessionScope.kode}
 
 <h1> du er nu bag muren </h1>
 
@@ -36,6 +36,17 @@ ${requestScope.msg}
 <form action="ServletOversigt" method="get">
 
     <input type="submit" value="Gå til admin side">
+</form>
+
+<form action="ServletHuskeliste" method="get">
+
+    <label for="ting">tilføj til huskeliste:</label><br>
+    <input type="text" id="ting" name="ting" value="Fed ryger"><br>
+    <input type="submit" value="Tilføj til huskeliste">
+</form>
+
+<form action="ServletHuskeliste" method="post">
+    <input type="submit" value="Se huskeliste">
 </form>
 
 
