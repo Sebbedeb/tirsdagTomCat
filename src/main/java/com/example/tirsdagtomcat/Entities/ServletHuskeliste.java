@@ -22,9 +22,6 @@ public class ServletHuskeliste extends HttpServlet {
             {
                 System.out.println("Det virkede");
                 person.addToHuskeListe(ting);
-                for (String s : person.getHuskeliste()) {
-                    System.out.println(s);
-                }
             }
         }
         request.getRequestDispatcher("WEB-INF/Hemmelig.jsp").forward(request,response);
